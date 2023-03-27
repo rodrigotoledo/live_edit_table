@@ -1,0 +1,16 @@
+<%= turbo_stream_from todo %>
+<%= turbo_frame_tag todo do %>
+<div id="<%= dom_id todo %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= todo.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Done:</strong>
+    <%= todo.done %>
+  </p>
+  <%= link_to 'Edit this todo', edit_todo_path(todo), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= button_to 'Destroy this todo', todo, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+</div>
+<% end %>
